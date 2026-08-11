@@ -611,19 +611,11 @@ html, body{
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="contact-wrap">
-    <div class="contact-copy reveal">
-      <div class="eyebrow">Get in touch</div>
-      <h2>Send us a drawing, a sample, or just the problem.</h2>
-      <p>Tell us what the roller needs to do and we'll take it from there — including a site visit if the part needs to be measured in place.</p>
-    <div class="hero-cta">
-  <a class="btn btn-primary"
-     href="https://mail.google.com/mail/?view=cm&fs=1&to=goodluckhygienicpolymer@gmail.com"
-     target="_blank"
-     rel="noopener noreferrer">
-    Email Us
-  </a>
+<a class="btn btn-primary"
+   href="mailto:goodluckhygienicpolymer@gmail.com"
+   onclick="openEmail(event)">
+  Email Us
+</a>
 
   <a class="btn btn-ghost"
      href="tel:+919831008168">
@@ -669,6 +661,34 @@ html, body{
   window.addEventListener('scroll', ()=>{
     nav.style.background = window.scrollY > 40 ? 'rgba(20,23,26,.78)' : 'rgba(20,23,26,.55)';
   });
+  function openEmail(event) {
+  event.preventDefault();
+
+  const email = "goodluckhygienicpolymer@gmail.com";
+  const subject = "Enquiry - Good Luck Hygienic Polymers";
+
+  if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+
+    // Try Gmail app
+    window.location.href =
+      `googlegmail://co?to=${encodeURIComponent(email)}&subject=${encodeURIComponent(subject)}`;
+
+    // Fallback if Gmail app isn't available
+    setTimeout(() => {
+      window.location.href =
+        `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+    }, 1200);
+
+  } else {
+
+    // Desktop: open Gmail Compose in a new tab
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}`,
+      "_blank"
+    );
+
+  }
+}
 </script>
 </body>
 </html>
