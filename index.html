@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Good Luck Hygienic Polymers — Precision Rubber & Industrial Rollers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14171a; --bg2:#191d21; --panel:rgba(255,255,255,.045); --panel-hi:rgba(255,255,255,.08);
+    --steel:#3c6178; --steel-2:#7db2cc; --forge:#e8620c; --forge-2:#ff9550;
+    --ink:#eef1f0; --muted:#95a2ac; --rule:rgba(255,255,255,.09);
+    --display:'Oswald',sans-serif; --body:'Work Sans',sans-serif; --mono:'IBM Plex Mono',monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:.01em;margin:0}
+  p{margin:0}
+  a{color:inherit}
+  ::selection{background:var(--forge);color:#fff}
+
+  /* ambient blurred backdrop */
+  .orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.35;pointer-events:none;z-index:0}
+  .orb-1{width:520px;height:520px;background:var(--steel);top:-160px;left:-120px}
+  .orb-2{width:460px;height:460px;background:var(--forge);top:30vh;right:-160px;opacity:.16}
+  .orb-3{width:400px;height:400px;background:var(--steel-2);bottom:-140px;left:30vw;opacity:.14}
+
+  nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+    padding:16px 6%;background:rgba(20,23,26,.55);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);
+    border-bottom:1px solid var(--rule);transition:background .3s}
+  .logo{font-family:var(--display);font-size:22px;letter-spacing:.03em;display:flex;align-items:center;gap:10px}
+  .logo-img{height:34px;width:auto;display:block;flex-shrink:0}
+  .navlinks a{margin-left:28px;text-decoration:none;color:var(--muted);font-size:14px;letter-spacing:.04em;text-transform:uppercase;font-weight:500;position:relative;transition:color .25s}
+  .navlinks a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--forge);transition:width .3s}
+  .navlinks a:hover{color:var(--ink)}
+  .navlinks a:hover::after{width:100%}
+
+  section{position:relative;padding:110px 8%;z-index:1}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--forge-2);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:'';width:26px;height:1px;background:var(--forge-2)}
+
+  /* HERO */
+  .hero{min-height:92vh;display:flex;align-items:center;padding-top:70px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;width:100%;max-width:1300px;margin:0 auto}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--forge-2);
+    border:1px solid rgba(232,98,12,.4);padding:7px 14px;border-radius:100px;background:rgba(232,98,12,.08);margin-bottom:26px}
+  .hero h1{font-size:clamp(42px,5.4vw,74px);line-height:1.02;color:var(--ink);text-transform:uppercase}
+  .hero h1 span{color:transparent;-webkit-text-stroke:1.5px var(--steel-2);display:block}
+  .hero p.lead{margin-top:26px;font-size:18px;color:var(--muted);max-width:520px}
+  .hero-cta{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap}
+  .btn{font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
+    padding:15px 28px;border-radius:4px;transition:transform .25s ease, box-shadow .25s ease, background .25s ease}
+  .btn-primary{background:var(--forge);color:#151515;font-weight:500;box-shadow:0 8px 24px -6px rgba(232,98,12,.5)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 30px -6px rgba(232,98,12,.65);background:var(--forge-2)}
+  .btn-ghost{border:1px solid var(--rule);color:var(--ink);background:rgba(255,255,255,.02)}
+  .btn-ghost:hover{border-color:var(--steel-2);transform:translateY(-3px);background:rgba(255,255,255,.05)}
+
+  .stats{display:flex;gap:40px;margin-top:56px;flex-wrap:wrap}
+  .stat b{display:block;font-family:var(--display);font-size:32px;color:var(--ink)}
+  .stat span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  /* Roller signature graphic */
+  .roller-wrap{display:flex;justify-content:center;align-items:center;perspective:900px}
+  .roller-svg{width:100%;max-width:420px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.5))}
+  .roller-band{animation:rollstripe 3.2s linear infinite}
+  @keyframes rollstripe{to{transform:translateX(-84px)}}
+  .cap{fill:url(#capGrad)}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+  .stagger > *{transition-delay:calc(var(--i,0) * 70ms)}
+
+  /* GALLERY / SLIDESHOW */
+  .gallery{padding-top:0}
+  .slideshow{position:relative;max-width:1300px;margin:36px auto 0;height:440px;border-radius:14px;overflow:hidden;
+    border:1px solid var(--rule);background:#0d0f11;box-shadow:0 24px 50px -20px rgba(0,0,0,.6)}
+  .slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  animation:slidefade 24s infinite, kenburns 24s infinite;
+  will-change:opacity,transform;
+}
+
+.slide:nth-child(1){animation-delay:0s,0s}
+.slide:nth-child(2){animation-delay:6s,6s}
+.slide:nth-child(3){animation-delay:12s,12s}
+.slide:nth-child(4){animation-delay:18s,18s}
+
+@keyframes slidefade{
+  0%{opacity:0}
+  3%{opacity:1}
+  22%{opacity:1}
+  25%{opacity:0}
+  100%{opacity:0}
+}
+
+@keyframes kenburns{
+  0%{transform:scale(1)}
+  25%{transform:scale(1.06)}
+  100%{transform:scale(1.06)}
+}
+  }
+  .slideshow::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,15,17,0) 55%,rgba(13,15,17,.85) 100%);pointer-events:none}
+  .slideshow-caption{position:absolute;left:24px;right:24px;bottom:18px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+  .slideshow-caption .sc-title{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.9}
+  .slideshow-caption .sc-sub{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted)}
+  @media (prefers-reduced-motion:reduce){
+    .slide{animation:none!important;opacity:1!important}
+    .slide:not(:first-child){display:none}
+  }
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start;max-width:1300px;margin:0 auto}
+  .about-grid h2{font-size:clamp(30px,3.4vw,44px);text-transform:uppercase;max-width:420px}
+  .about-copy p{color:var(--muted);font-size:16.5px;margin-bottom:18px}
+  .about-copy p b{color:var(--ink);font-weight:500}
+  .panel{background:var(--panel);border:1px solid var(--rule);border-radius:14px;backdrop-filter:blur(10px)}
+  .about-plate{padding:30px;margin-top:26px}
+  .about-plate .row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:13px}
+  .about-plate .row:last-child{border-bottom:none}
+  .about-plate .row span:first-child{color:var(--muted)}
+
+  /* Industries */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:1300px;margin:50px auto 0}
+  .card{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:26px;backdrop-filter:blur(10px);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s,border-color .35s}
+  .card:hover{transform:translateY(-6px);background:var(--panel-hi);border-color:rgba(232,98,12,.35)}
+  .part-code{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--forge-2);display:block;margin-bottom:12px}
+  .card h3{font-size:18px;color:var(--ink);text-transform:none;font-weight:500;font-family:var(--body);margin-bottom:8px}
+  .card p{font-size:14.5px;color:var(--muted)}
+
+  /* Why choose */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1300px;margin:50px auto 0}
+  .why-card{padding:32px 28px}
+  .why-num{font-family:var(--mono);font-size:12px;color:var(--steel-2);letter-spacing:.1em;margin-bottom:16px;display:block}
+  .why-card h3{font-size:19px;margin-bottom:10px;text-transform:none;font-family:var(--body);font-weight:500}
+  .why-card p{color:var(--muted);font-size:14.5px}
+
+  /* process */
+  .process-line{max-width:1300px;margin:60px auto 0;display:flex;position:relative}
+  .process-line::before{content:'';position:absolute;top:26px;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--rule),var(--steel-2),var(--rule))}
+  .p-step{flex:1;text-align:center;position:relative;padding:0 12px}
+  .p-dot{width:52px;height:52px;border-radius:50%;background:var(--bg2);border:1px solid var(--steel-2);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:var(--mono);font-size:14px;color:var(--steel-2);position:relative;z-index:2;transition:.35s}
+  .p-step:hover .p-dot{background:var(--forge);border-color:var(--forge);color:#151515;transform:scale(1.1)}
+  .p-step h3{font-size:15px;font-family:var(--body);font-weight:500;text-transform:none;margin-bottom:8px}
+  .p-step p{font-size:13px;color:var(--muted)}
+
+  /* clients marquee */
+  .marquee{overflow:hidden;position:relative;max-width:1300px;margin:50px auto 0;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .marquee-track{display:flex;gap:60px;width:max-content;animation:scroll 22s linear infinite}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  .marquee-track span{font-family:var(--display);font-size:26px;color:var(--muted);white-space:nowrap;letter-spacing:.03em;text-transform:uppercase;opacity:.75;transition:opacity .3s,color .3s}
+  .marquee-track span:hover{opacity:1;color:var(--ink)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* contact plate */
+  .contact-wrap{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .plate{background:linear-gradient(160deg,#20262c,#171b1e);border:1px solid var(--rule);border-radius:18px;padding:44px;position:relative;overflow:hidden}
+  .plate::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(232,98,12,.12),transparent 55%)}
+  .rivet{position:absolute;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#7a7a7a,#2a2a2a);box-shadow:inset 0 1px 1px rgba(255,255,255,.3)}
+  .plate .rivet:nth-child(1){top:16px;left:16px}.plate .rivet:nth-child(2){top:16px;right:16px}
+  .plate .rivet:nth-child(3){bottom:16px;left:16px}.plate .rivet:nth-child(4){bottom:16px;right:16px}
+  .plate-row{position:relative;font-family:var(--mono);display:flex;flex-direction:column;gap:5px;padding:16px 0;border-bottom:1px dashed var(--rule)}
+  .plate-row:last-child{border-bottom:none}
+  .plate-row .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-2)}
+  .plate-row .v{font-size:15px;color:var(--ink)}
+  .plate-row .v a{text-decoration:none;color:var(--ink);border-bottom:1px solid transparent;transition:border-color .25s,color .25s}
+  .plate-row .v a:hover{color:var(--forge-2);border-color:var(--forge-2)}
+  .contact-copy h2{font-size:clamp(30px,3.4vw,44px);text-transform:uppercase;margin-bottom:20px}
+  .contact-copy p{color:var(--muted);font-size:16.5px;margin-bottom:26px;max-width:440px}
+
+  footer{padding:36px 8%;text-align:center;border-top:1px solid var(--rule);position:relative;z-index:1}
+  footer p{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.05em}
+
+  @media (max-width:900px){
+    .hero-grid,.about-grid,.contact-wrap{grid-template-columns:1fr}
+    .why-grid{grid-template-columns:1fr}
+    .roller-wrap{order:-1;margin-bottom:10px}
+    section{padding:80px 6%}
+    .slideshow{height:280px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<nav>
+  <div class="logo">
+    <img class="logo-img" src="logo.png" alt="Good Luck Hygienic Polymers logo">
+    Good Luck Hygienic Polymers
+  </div>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#industries">Industries</a>
+    <a href="#process">Process</a>
+    <a href="#clients">Clients</a>
+    <a href="#sister">Sister Concern</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="badge">● Three Decades of Precision Roller Manufacturing</div>
+      <h1>Rollers built<br>to your exact<br><span>tolerance.</span></h1>
+      <p class="lead">Good Luck Hygienic Polymers manufactures custom rubber and industrial rollers for printing, steel, paper, textile, tannery and dozens of other production lines — engineered from a drawing, a worn sample, or a measurement taken on your factory floor, and delivered across India and into neighbouring markets including Bangladesh and Bhutan.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Request a Quote</a>
+        <a class="btn btn-ghost" href="#industries">See Industries Served</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>30+</b><span>Years in Operation</span></div>
+        <div class="stat"><b>100+</b><span>Industries Served</span></div>
+        <div class="stat"><b>100%</b><span>Custom Engineered</span></div>
+      </div>
+    </div>
+    <div class="roller-wrap">
+      <svg class="roller-svg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="capGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#8a97a0"/><stop offset="100%" stop-color="#3f4952"/>
+          </linearGradient>
+          <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2b2f33"/><stop offset="50%" stop-color="#17191b"/><stop offset="100%" stop-color="#2b2f33"/>
+          </linearGradient>
+          <pattern id="stripes" width="42" height="120" patternUnits="userSpaceOnUse" patternTransform="skewX(-18)">
+            <rect width="21" height="120" fill="#e8620c" opacity=".55"/>
+          </pattern>
+          <clipPath id="clipBody"><rect x="70" y="40" width="260" height="140" rx="8"/></clipPath>
+        </defs>
+
+        <rect x="2" y="104" width="10" height="12" rx="3" fill="#4a545c"/>
+        <rect x="14" y="100" width="22" height="20" rx="4" fill="url(#capGrad)"/>
+        <line x1="19" y1="104" x2="19" y2="116" stroke="#2b2f33" stroke-width="2"/>
+        <line x1="24" y1="104" x2="24" y2="116" stroke="#2b2f33" stroke-width="2"/>
+        <line x1="29" y1="104" x2="29" y2="116" stroke="#2b2f33" stroke-width="2"/>
+
+        <rect x="364" y="100" width="22" height="20" rx="4" fill="url(#capGrad)"/>
+        <line x1="369" y1="104" x2="369" y2="116" stroke="#2b2f33" stroke-width="2"/>
+        <line x1="374" y1="104" x2="374" y2="116" stroke="#2b2f33" stroke-width="2"/>
+        <line x1="379" y1="104" x2="379" y2="116" stroke="#2b2f33" stroke-width="2"/>
+        <rect x="388" y="104" width="10" height="12" rx="3" fill="#4a545c"/>
+
+        <rect x="40" y="30" width="30" height="160" rx="6" fill="url(#capGrad)"/>
+        <rect x="330" y="30" width="30" height="160" rx="6" fill="url(#capGrad)"/>
+        <rect x="70" y="40" width="260" height="140" rx="8" fill="url(#bodyGrad)"/>
+        <g clip-path="url(#clipBody)">
+          <rect class="roller-band" x="-20" y="30" width="460" height="160" fill="url(#stripes)"/>
+        </g>
+        <rect x="70" y="40" width="260" height="140" rx="8" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+        <ellipse cx="200" cy="46" rx="128" ry="6" fill="#fff" opacity=".06"/>
+        <circle cx="55" cy="110" r="6" fill="#c7cdd2"/><circle cx="345" cy="110" r="6" fill="#c7cdd2"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY / SLIDESHOW -->
+<section class="gallery">
+  <div class="eyebrow reveal" style="max-width:1300px;margin:0 auto">Product gallery</div>
+  <h2 class="reveal" style="font-size:clamp(28px,3vw,38px);text-transform:uppercase;max-width:1300px;margin:0 auto">Rollers off the line</h2>
+  <div class="slideshow reveal">
+    <img class="slide" src="image1.jpg" alt="Custom industrial roller 1">
+    <img class="slide" src="image2.jpg" alt="Custom industrial roller 2">
+    <img class="slide" src="image3.jpg" alt="Custom industrial roller 3">
+    <img class="slide" src="image5.jpg" alt="Custom industrial roller 5">
+    <div class="slideshow-caption">
+      <span class="sc-title">Good Luck Hygienic Polymers</span>
+      <span class="sc-sub">Custom rubber &amp; industrial rollers</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="eyebrow">About the company</div>
+      <h2>Three decades of building rollers that keep production moving.</h2>
+    </div>
+    <div class="about-copy reveal">
+      <p>For <b>three decades</b>, Good Luck Hygienic Polymers has supplied custom-built rubber and industrial rollers to manufacturers across India and abroad, serving <b>100+ industries</b> along the way. Every roller we make starts with your requirement — a technical drawing, a worn roller sent in as a sample, or a set of dimensions you provide — and ends as a part built to fit your machine, not a generic catalogue size.</p>
+      <p>Where a roller can't easily be measured on paper, <b>our engineers visit the facility</b> in person, inspect the existing roller, and take the measurements directly off the machine. That on-site step is what lets us guarantee a fit that runs true on day one, rather than a part that needs rework after installation.</p>
+      <p>Rubber compound, hardness (durometer), core material and surface finish are all selected for the job the roller actually does — whether that's transferring ink at speed, squeezing steel through a pickling line, or holding tension across a paper machine.</p>
+      <p>Production runs on our own <b>automatic roller-manufacturing machinery</b>, which holds consistent thickness, roundness and finish across every unit — so a roller made for you today matches the one we make for you next year.</p>
+      <div class="panel about-plate">
+        <div class="row"><span>Proprietor</span><span>S. R. Sengupta</span></div>
+        <div class="row"><span>Input accepted</span><span>Drawing / Sample / On-site Measurement</span></div>
+        <div class="row"><span>Output</span><span>Custom Rubber & Industrial Rollers</span></div>
+        <div class="row"><span>Service area</span><span>Pan-India + Export (Bangladesh, Bhutan)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="eyebrow reveal" style="max-width:1300px;margin:0 auto">Capabilities</div>
+  <h2 class="reveal" style="font-size:clamp(30px,3.4vw,44px);text-transform:uppercase;max-width:1300px;margin:0 auto">Industries we manufacture for</h2>
+  <p class="reveal" style="max-width:640px;margin:18px auto 0;color:var(--muted);font-size:16.5px">Rollers are rarely interchangeable between industries — the compound, hardness and core built for a printing press aren't compatible with a tannery line. Across 100+ industries served, here's a sample of the production environments we regularly engineer for.</p>
+
+  <div class="grid stagger">
+    <div class="card"><span class="part-code">RC-01 / PRINT</span><h3>Printing & Publishing</h3><p>Offset, gravure, newspaper and packaging print rollers, compounded for consistent ink transfer and nip pressure at press speed.</p></div>
+    <div class="card"><span class="part-code">RC-02 / STEEL</span><h3>Steel & Metal Processing</h3><p>Squeeze rolls, pinch rolls and guide rollers for pickling lines, galvanizing baths and rolling mills, built to handle heat, acid and alkali.</p></div>
+    <div class="card"><span class="part-code">RC-03 / PAPER</span><h3>Paper & Pulp</h3><p>Press rolls, calender rolls and felt-guide rolls sized and crowned to hold sheet tension at full machine speed.</p></div>
+    <div class="card"><span class="part-code">RC-04 / PACK</span><h3>Packaging & Corrugation</h3><p>Rollers for corrugators, laminators and box-making lines, formulated for tack, release and abrasion resistance.</p></div>
+    <div class="card"><span class="part-code">RC-05 / TEXTILE</span><h3>Textile Mills</h3><p>Padding mangle, calender and dyeing rollers built for even pressure across the full cloth width without marking.</p></div>
+    <div class="card"><span class="part-code">RC-06 / LEATHER</span><h3>Tannery & Leather</h3><p>Splitting, buffing and finishing rollers resistant to tanning chemicals, oils and continuous flexing.</p></div>
+    <div class="card"><span class="part-code">RC-07 / JUTE</span><h3>Jute Mills</h3><p>Drawing and spinning rollers shaped to the fibre and finished for a consistent, repeatable draft.</p></div>
+    <div class="card"><span class="part-code">RC-08 / SUGAR</span><h3>Sugar Mills</h3><p>Heavy-duty crusher and feed rollers built for the sustained mechanical loads of continuous cane crushing.</p></div>
+    <div class="card"><span class="part-code">RC-09 / CEMENT</span><h3>Cement & Bulk Handling</h3><p>Conveyor and lagging rollers engineered for abrasion resistance under constant load and dust.</p></div>
+    <div class="card"><span class="part-code">RC-10 / BOND</span><h3>Rubber-to-Metal Bonding</h3><p>Precision bonding of rubber to steel and aluminium cores for rollers, mounts and vibration-isolation components.</p></div>
+    <div class="card"><span class="part-code">RC-11 / FILM</span><h3>Plastic Film & Extrusion</h3><p>Nip, chill and guide rollers for film and sheet extrusion lines, held to tight roundness and surface-finish tolerances.</p></div>
+    <div class="card"><span class="part-code">RC-12 / FOOD</span><h3>Food & Beverage Processing</h3><p>Food-appropriate rubber compounds for conveying, forming and packaging rollers on production lines.</p></div>
+    <div class="card"><span class="part-code">RC-13 / AUTO</span><h3>Automotive Components</h3><p>Rollers and bonded rubber parts manufactured for assembly-line and component-manufacturing equipment.</p></div>
+    <div class="card"><span class="part-code">RC-14 / REBUILD</span><h3>Re-rubbering & Refurbishment</h3><p>Stripping, re-covering and re-grinding of worn rollers — back in service at a fraction of the cost of replacement.</p></div>
+    <div class="card"><span class="part-code">RC-15 / CUSTOM</span><h3>Custom Engineering</h3><p>Any application not listed above — built from your drawing, sample or on-site measurement in the compound and finish it calls for.</p></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section>
+  <div class="eyebrow reveal" style="max-width:1300px;margin:0 auto">Why manufacturers choose us</div>
+  <h2 class="reveal" style="font-size:clamp(30px,3.4vw,44px);text-transform:uppercase;max-width:1300px;margin:0 auto">Built for fit, not just for spec</h2>
+  <div class="why-grid stagger">
+    <div class="panel why-card reveal"><span class="why-num">01</span><h3>Engineering Consultation</h3><p>We work through the application with you before manufacturing begins — load, speed, temperature and the chemicals the roller will meet all shape the final spec.</p></div>
+    <div class="panel why-card reveal"><span class="why-num">02</span><h3>On-Site Measurement</h3><p>When drawings aren't available, our team visits your facility, inspects the existing roller and measures it directly on the machine.</p></div>
+    <div class="panel why-card reveal"><span class="why-num">03</span><h3>Trusted Workmanship</h3><p>Organisations including Britannia, Bhushan Steel, Hindustan Times, the Reserve Bank of India, Anmol Industries, Sobisco, Sona Biscuits, Priya Biscuit and Epic Agro have relied on our rollers over the years.</p></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="eyebrow reveal" style="max-width:1300px;margin:0 auto">How a roller gets made</div>
+  <h2 class="reveal" style="font-size:clamp(30px,3.4vw,44px);text-transform:uppercase;max-width:1300px;margin:0 auto">Manufacturing process</h2>
+  <div class="process-line stagger">
+    <div class="p-step reveal"><div class="p-dot">01</div><h3>Requirement</h3><p>You share the application, load and any known specs.</p></div>
+    <div class="p-step reveal"><div class="p-dot">02</div><h3>Drawing / Measurement</h3><p>Work from your drawing, a worn sample, or an on-site visit.</p></div>
+    <div class="p-step reveal"><div class="p-dot">03</div><h3>Manufacturing</h3><p>Core prep, rubber application and machining to spec.</p></div>
+    <div class="p-step reveal"><div class="p-dot">04</div><h3>Inspection</h3><p>Dimensions, hardness and finish checked before dispatch.</p></div>
+    <div class="p-step reveal"><div class="p-dot">05</div><h3>Delivery</h3><p>Roller delivered ready to install and run.</p></div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients">
+  <div class="eyebrow reveal" style="max-width:1300px;margin:0 auto">Trusted by</div>
+  <h2 class="reveal" style="font-size:clamp(30px,3.4vw,44px);text-transform:uppercase;max-width:1300px;margin:0 auto">Clients we've worked with</h2>
+  <div class="marquee reveal">
+    <div class="marquee-track" id="track"></div>
+  </div>
+</section>
+
+<!-- SISTER CONCERN -->
+<section id="sister">
+  <div class="eyebrow reveal" style="max-width:1300px;margin:0 auto">Group company</div>
+  <h2 class="reveal" style="font-size:clamp(30px,3.4vw,44px);text-transform:uppercase;max-width:1300px;margin:0 auto">Sister concern</h2>
+  <div class="panel reveal" style="max-width:1300px;margin:40px auto 0;padding:44px;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:22px">
+      <div>
+        <h3 style="font-family:var(--display);font-size:24px;text-transform:uppercase;color:var(--ink);margin-bottom:8px">Press Roll India</h3>
+        <p style="color:var(--muted);font-size:15.5px;max-width:520px">Our sister concern, focused specifically on <b style="color:var(--ink);font-weight:500">printing rollers</b> — offset, gravure, newspaper and packaging presses — built with the same on-site measurement and custom-engineering approach.</p>
+      </div>
+    </div>
+    <a class="btn btn-ghost" href="#contact">Ask About Press Roll India</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-copy reveal">
+      <div class="eyebrow">Get in touch</div>
+      <h2>Send us a drawing, a sample, or just the problem.</h2>
+      <p>Tell us what the roller needs to do and we'll take it from there — including a site visit if the part needs to be measured in place.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="mailto:goodluckhygienicpolymer@gmail.com">Email Us</a>
+        <a class="btn btn-ghost" href="tel:+919831008168">Call +91 98310 08168</a>
+      </div>
+    </div>
+    <div class="plate reveal">
+      <div class="rivet"></div><div class="rivet"></div><div class="rivet"></div><div class="rivet"></div>
+      <div class="plate-row"><span class="k">Proprietor</span><span class="v">S. R. Sengupta</span></div>
+      <div class="plate-row"><span class="k">GST</span><span class="v">19AWHPS4129H1Z6</span></div>
+      <div class="plate-row"><span class="k">Address</span><span class="v">49/3, T. N. Mukherjee Road, P.O. Raghunathpur, Hooghly 712247, WB, India</span></div>
+      <div class="plate-row"><span class="k">Phone</span><span class="v"><a href="tel:+919831008168">+91 98310 08168</a></span></div>
+      <div class="plate-row"><span class="k">Email</span><span class="v"><a href="mailto:goodluckhygienicpolymer@gmail.com">goodluckhygienicpolymer@gmail.com</a></span></div>
+      <div class="plate-row"><span class="k">Business Hours</span><span class="v">Monday – Saturday, 9:00 AM – 5:00 PM</span></div>
+    </div>
+  </div>
+</section>
+
+<footer><p>© Good Luck Hygienic Polymers — Precision Rubber & Industrial Rollers</p></footer>
+
+<script>
+  // client marquee (duplicated for seamless loop)
+  const clients = ["Britannia","Bhushan Steel","Hindustan Times","Reserve Bank of India","Anmol Industries","Sobisco","Sona Biscuits","Priya Biscuit","Epic Agro"];
+  const track = document.getElementById('track');
+  [...clients, ...clients].forEach(name=>{
+    const s = document.createElement('span');
+    s.textContent = name;
+    track.appendChild(s);
+  });
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15, rootMargin:"0px 0px -60px 0px"});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.setProperty('--i', i % 8);
+    io.observe(el);
+  });
+
+  // subtle nav background intensifies on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', ()=>{
+    nav.style.background = window.scrollY > 40 ? 'rgba(20,23,26,.78)' : 'rgba(20,23,26,.55)';
+  });
+</script>
+</body>
+</html>
