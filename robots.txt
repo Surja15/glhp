@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://surja15.github.io/glhp/sitemap.xml
