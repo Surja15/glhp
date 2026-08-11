@@ -298,12 +298,73 @@ Good Luck Hygienic Polymers Raghunathpur
   footer p{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.05em}
 
   @media (max-width:900px){
-    .hero-grid,.about-grid,.contact-wrap{grid-template-columns:1fr}
-    .why-grid{grid-template-columns:1fr}
-    .roller-wrap{order:-1;margin-bottom:10px}
-    section{padding:80px 6%}
-    .slideshow{height:280px}
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:35px;
   }
+
+  .about-grid,
+  .contact-wrap{
+    grid-template-columns:1fr;
+  }
+
+  .why-grid{
+    grid-template-columns:1fr;
+  }
+
+  .roller-wrap{
+    order:-1;
+    margin-bottom:10px;
+  }
+
+  section{
+    padding:70px 6%;
+  }
+
+  .hero{
+    padding-top:45px;
+  }
+
+  .hero h1{
+    font-size:clamp(38px,10vw,60px);
+  }
+
+  .hero p.lead{
+    font-size:16px;
+  }
+
+  .stats{
+    gap:25px;
+    margin-top:40px;
+  }
+
+  .slideshow{
+    height:340px;
+    margin-top:28px;
+  }
+
+  .slideshow-caption{
+    left:18px;
+    right:18px;
+    bottom:14px;
+  }
+
+  .slideshow-caption .sc-sub{
+    display:none;
+  }
+
+  .navlinks{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:8px;
+}
+
+.navlinks a{
+  margin-left:0;
+  font-size:10px;
+}
+}
   @media (prefers-reduced-motion:reduce){
     *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   }
@@ -337,7 +398,7 @@ Good Luck Hygienic Polymers Raghunathpur
 
 <nav>
   <div class="logo">
-    <img class="logo-img" src="logo.png" alt="Good Luck Hygienic Polymers logo">
+    <img class="logo-img" src="logo.png" alt="">
     Good Luck Hygienic Polymers
   </div>
   <div class="navlinks">
